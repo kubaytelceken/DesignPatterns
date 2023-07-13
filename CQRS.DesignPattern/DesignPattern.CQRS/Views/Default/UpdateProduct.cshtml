@@ -1,0 +1,22 @@
+﻿@using DesignPattern.CQRS.CQRSPattern.Results;
+
+@model GetProductUpdateQueryResult
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<div class="container">
+    <form method="post">
+        <label>Product Name</label>
+        <input type="text" class="form-control" asp-for="Name" />
+        <br />
+        <label>Price</label>
+        <input type="number" class="form-control" asp-for="Price" />
+        <br />
+        <label>Stock</label>
+        <input type="number" class="form-control" asp-for="Stock" />
+        <br />
+        <label>Description</label>
+        <input type="text" class="form-control" asp-for="Description" />
+        <br />
+        <button class="btn btn-success">Update Product</button>
+    </form>
+</div>

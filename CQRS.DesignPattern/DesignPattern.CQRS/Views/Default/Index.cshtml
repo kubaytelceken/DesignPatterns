@@ -1,0 +1,35 @@
+﻿@using DesignPattern.CQRS.CQRSPattern.Results;
+
+@model List<GetProductQueryResult>
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<div class="container">
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Delete</th>
+            <th>Update</th>
+            <th>Review</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+           <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Price $</td>
+                <td>@item.Stock</td>
+                <td> <a href="/Default/DeleteProduct/@item.Id" class="btn btn-danger">Delete</a></td>
+                <td> <a href="/Default/UpdateProduct/@item.Id" class="btn btn-warning">Update</a></td>
+                <td> <a href="/Default/GetProduct/@item.Id" class="btn btn-warning">Review</a></td>
+           </tr>
+
+        }
+    </table>
+    <a href="/Default/AddProduct/" class="btn btn-primary">Add Product</a>
+</div>
