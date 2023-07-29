@@ -5,7 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RepositoryDesignPattern.Business.Abstract;
+using RepositoryDesignPattern.Business.Concrete;
+using RepositoryDesignPattern.DAL.Abstract;
 using RepositoryDesignPattern.DAL.Concrete;
+using RepositoryDesignPattern.DAL.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +29,10 @@ namespace DesignPattern.Repository
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<ICategoryDal, EfCategoryDal>();
+            services.AddScoped<IProductService, ProductManager>();
+            services.AddScoped<IProductDal, EfProductDal>();
             services.AddEntityFrameworkNpgsql().AddDbContext<Context>(opt => opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
         }

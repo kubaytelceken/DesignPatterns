@@ -1,0 +1,27 @@
+﻿@using RepositoryDesignPattern.Entitites.Concrete;
+@model List<Category>
+
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<div class="container">
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Category Name</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryId</td>
+                <td>@item.CategoryName</td>
+                <td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-warning">Update</a></td>
+                <td><a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Delete</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Category/AddCategory" class="btn btn-primary">Add Category</a>
+</div>

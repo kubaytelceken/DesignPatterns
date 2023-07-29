@@ -9,5 +9,6 @@ namespace RepositoryDesignPattern.DAL.Abstract
 {
     public interface IProductDal : IGenericDal<Product>
     {
+        List<Product> ProductListWithCategory();
     }
 }
